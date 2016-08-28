@@ -1,45 +1,34 @@
 using UnityEngine;
 using System.Collections;
 
-public class PlayerShooting : MonoBehaviour {
+public class PlayerShooting : ShootingScript
+{
 
-	public float rateOfFire;
-    public float bulletVelocity;
-	bool _canShoot = true;
-    public GameObject bullet;
+    private Transform _torso;
+    private Animator _torsoAnimator;
 
-    public GameObject [] BubbleBullets;
+    void Awake()
+    {
+        _torso = transform.Find("Torso");
+       _torsoAnimator= _torso.GetComponent<Animator>();
+    }
 
-    public GameObject BulletSpawn;
+    public override void Shoot()
+    {
+        _canShoot = false;
+        _torsoAnimator.SetTrigger("Shot");
+        Invoke("SetShootOn", 1 / rateOfFire);
+    }
 
-    void Shoot()
-
+    public void SpawnBullet()
     {
         Rigidbody2D rigid = ((GameObject)Instantiate(bullet, BulletSpawn.transform.position, transform.rotation)).GetComponent<Rigidbody2D>();
-        rigid.velocity = (Vector2)transform.right.normalized * bulletVelocity;
+        PrepareBullet(rigid);
     }
 
-    void SetShootOn ()
+    internal override void PrepareBullet(Rigidbody2D rigid)
     {
-            _canShoot = true;
-        
+        rigid.velocity = (Vector2)_torso.right.normalized * bulletVelocity;
     }
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update ()
-	{
-        
-         if (_canShoot == true && Input.GetMouseButton(0))
-        {
-            Shoot();
-            _canShoot = false;
-            Invoke("SetShootOn", 1 / rateOfFire);
-        }
-	
-	}
 }
