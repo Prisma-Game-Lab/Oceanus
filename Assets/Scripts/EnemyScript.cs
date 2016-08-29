@@ -15,7 +15,7 @@ public class EnemyScript : MonoBehaviour {
 
     void KillEnemy(float time)
     {
-       Destroy(this.gameObject,time); 
+        Destroy(this.gameObject,time); 
         Debug.Log("TEU CU");
     }
 }

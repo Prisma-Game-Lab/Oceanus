@@ -90,7 +90,7 @@ namespace Assets.Scripts
         private void SetTargetLookAheadX()
         {
             Vector3 dir = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;//this.Target.GetComponent<PlayerMovement>().LookingAngle;
-            Debug.Log(dir);
+            //Debug.Log(dir);
             if (_focusArea.Velocity.x != 0)
             {
                 _lookAheadDirX = Mathf.Sign(_focusArea.Velocity.x);

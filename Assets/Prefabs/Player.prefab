@@ -21,7 +21,7 @@ GameObject:
   - 4: {fileID: 4000011047880800}
   - 212: {fileID: 212000012142390700}
   - 95: {fileID: 95000011054286076}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Legs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   - 61: {fileID: 61000010222597124}
   - 114: {fileID: 114000014152423118}
   - 114: {fileID: 114000010504611428}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -60,7 +60,7 @@ GameObject:
   - 212: {fileID: 212000011683164406}
   - 95: {fileID: 95000012007600670}
   - 114: {fileID: 114000014218483664}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Torso
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -76,7 +76,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000012120372990}
   - 58: {fileID: 58000012158148564}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: BulletSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -267,7 +267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fe5fd6d3b69bd549a88fda41d634d69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxLife: 100
+  MaxLife: 500
 --- !u!114 &114000014218483664
 MonoBehaviour:
   m_ObjectHideFlags: 1

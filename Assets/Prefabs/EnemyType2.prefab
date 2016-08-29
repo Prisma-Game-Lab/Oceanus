@@ -27,7 +27,7 @@ GameObject:
   - 114: {fileID: 114000013718037592}
   m_Layer: 8
   m_Name: EnemyType2
-  m_TagString: Enemy
+  m_TagString: EnemyType2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -70,7 +70,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011931952632}
   m_LocalRotation: {x: -0, y: -0, z: 0.52574337, w: 0.8506433}
-  m_LocalPosition: {x: -16.560299, y: -17.767853, z: 0}
+  m_LocalPosition: {x: -21.569712, y: -7.175453, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 63.554005}
   m_Children:
@@ -148,6 +148,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RangeDistance: 20
   RangeAngle: 65
+  DistanceLimit: 8
+  SlowDownSpeed: 2
 --- !u!114 &114000011758340068
 MonoBehaviour:
   m_ObjectHideFlags: 1

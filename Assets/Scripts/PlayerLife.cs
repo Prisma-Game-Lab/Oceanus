@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using JetBrains.Annotations;
+using UnityEngine.SceneManagement;
 
 public class PlayerLife : MonoBehaviour {
     //Variables
@@ -13,13 +15,16 @@ public class PlayerLife : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-	    //Debug.Log(_curLife);
+	void Update ()
+	{
+	    if (GameObject.FindGameObjectWithTag("Building") == null)
+	        KillPlayer();
 	}
 
     void KillPlayer()
     {
         Debug.Log("MORREU");
+        SceneManager.LoadScene("GameOverScreen");
     }
 
     void TakeShoot()
