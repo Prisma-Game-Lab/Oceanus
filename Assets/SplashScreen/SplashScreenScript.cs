@@ -8,7 +8,9 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 
 public class SplashScreenScript : MonoBehaviour {
 
@@ -41,7 +43,7 @@ public class SplashScreenScript : MonoBehaviour {
 		Vector2 size = SplashScreenScript.getSize (), rSize = spRend.bounds.size;
 		Vector3 scaleToApply;
 		if (!scaleToFill) {
-			float scale = Mathf.Min (size.x / rSize.x, rSize.y / size.y);
+			float scale = Mathf.Min (size.x / rSize.x, size.y / rSize.y);
 			scaleToApply = new Vector3 (scale,scale,1);
 		}
 		else
@@ -99,6 +101,7 @@ public class SplashScreenScript : MonoBehaviour {
 	}
 }
 
+#if UNITY_EDITOR
 [CustomEditor(typeof(SplashScreenScript))]
 [CanEditMultipleObjects]
 public class MyEditor : Editor{
@@ -120,3 +123,4 @@ public class MyEditor : Editor{
 		EditorUtility.SetDirty(target);
 	}
 }
+#endif

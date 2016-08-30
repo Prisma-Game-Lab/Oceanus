@@ -20,7 +20,9 @@ public class EnemyMovement : MonoBehaviour {
 	}
 
 	// Update is called once per frame
-	void Update () {    
+	void Update () {
+		//Gambiarra para lidar com estrutura morta
+		if(target==null) target = EnemySpawn.getBuilding().transform;
 		Vector3 dir = target.position - myTransform.position;
 		if (dir != Vector3.zero) {
 			float angle = Mathf.Atan2 (dir.y, dir.x)*Mathf.Rad2Deg;

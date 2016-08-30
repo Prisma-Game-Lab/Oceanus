@@ -17,7 +17,13 @@ public class EnemySpawn : MonoBehaviour
     public Transform PrimaryTarget;
     private Quaternion _angleToCenter;
     public float TimeBetSpawn;
+
+	private static EnemySpawn _instance;
+	public static EnemySpawn instance{get{ return _instance;}}
    
+	void Awake(){
+		_instance = this;
+	}
 
 	// Use this for initialization
 	void Start ()
@@ -25,8 +31,10 @@ public class EnemySpawn : MonoBehaviour
       EnemySpanws = GameObject.FindGameObjectsWithTag("EnemySpawn");
 	  BuildingArray = GameObject.FindGameObjectsWithTag("Building");
 	  Invoke("SetSpawnOn",TypeToStartSpawn);
-	    EnemyTypesArray[0] = EnemyType1;
-        EnemyTypesArray[1] = EnemyType2;
+		EnemyTypesArray = new GameObject[]{ EnemyType1, EnemyType2 };
+		// EnemyTypesArray nao havia sido inicializado (uso de new)
+	    //EnemyTypesArray[0] = EnemyType1; 
+        //EnemyTypesArray[1] = EnemyType2;
     }
 
     void SetSpawnOn()
@@ -50,7 +58,7 @@ public class EnemySpawn : MonoBehaviour
         else if (random == 1)
         {
           GameObject SpawningEnemy = (GameObject)Instantiate(EnemyType2, Spawn.transform.position, _angleToCenter);
-          SpawningEnemy.GetComponent<EnemyMovement>().target = BuildingArray[Random.Range((int)0, 3)].transform;
+			SpawningEnemy.GetComponent<EnemyMovement> ().target = getBuilding ().transform;
         }
        
         CanSpawn = false;
@@ -58,6 +66,18 @@ public class EnemySpawn : MonoBehaviour
         
 
     }
+	//Gambiarra vai ficar sorteando ate encontrar building.
+	//Horrivel e nao condizente com o funcionamento. Mas quebra o galho a curto prazo
+	public static GameObject getBuilding(){
+		GameObject obj = null;
+		int count=0;
+		while (obj == null) {
+			if (count++ > 20)
+				return GameObject.Find ("Player");
+			obj = _instance.BuildingArray [Random.Range (0, 3)];
+		}
+		return obj;
+	}
 	
 	// Update is called once per frame
 	void Update () {

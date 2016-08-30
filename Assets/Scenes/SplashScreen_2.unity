@@ -164,7 +164,7 @@ Prefab:
     - target: {fileID: 21282826, guid: 5a130d89ad6b64d0797f66a18cc59736, type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: f269ca91710a7fd4f86c1d682496979a,
+      objectReference: {fileID: 21300000, guid: 06196af28b8064143a3a39f628c18f1e,
         type: 3}
     - target: {fileID: 2007036, guid: 5a130d89ad6b64d0797f66a18cc59736, type: 2}
       propertyPath: m_BackGroundColor.r
@@ -202,5 +202,5 @@ MonoBehaviour:
   fadeOutDuration: 1
   scaleToFill: 0
   sceneFormat: 1
-  sceneName: SplashScreen_2
+  sceneName: MainMenu
   sceneIndex: 0
